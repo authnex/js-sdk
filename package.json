@@ -1,6 +1,6 @@
 {
   "name": "@authnex/widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AuthNex drop-in authentication widget",
   "main": "dist/js/v1/authnex.min.js",
   "module": "dist/js/v1/authnex.esm.js",
