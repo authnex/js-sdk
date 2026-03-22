@@ -1,0 +1,39 @@
+{
+  "name": "@authnex/widget",
+  "version": "1.0.0",
+  "description": "AuthNex drop-in authentication widget",
+  "main": "dist/js/v1/authnex.min.js",
+  "module": "dist/js/v1/authnex.esm.js",
+  "types": "dist/js/v1/authnex.d.ts",
+  "files": [
+    "dist/js/v1/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c && cp _headers dist/_headers",
+    "build:watch": "rollup -c -w",
+    "prepublishOnly": "npm run build && npm run sri",
+    "sri": "node -e \"const fs=require('fs'),crypto=require('crypto');const b=fs.readFileSync('dist/js/v1/authnex.min.js');const h=crypto.createHash('sha384').update(b).digest('base64');fs.writeFileSync('dist/js/v1/authnex.min.js.sri','sha384-'+h);console.log('SRI: sha384-'+h)\""
+  },
+  "devDependencies": {
+    "rollup": "^4.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "typescript": "^5.0.0",
+    "tslib": "^2.6.0"
+  },
+  "keywords": [
+    "authnex",
+    "authentication",
+    "login",
+    "widget",
+    "social-login",
+    "oauth"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
